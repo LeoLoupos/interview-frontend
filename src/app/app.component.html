@@ -1,14 +1,12 @@
 <app-header (featureSelected)="onNavigate($event)"></app-header>
 <div class="container">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12">        
+        <app-home-page *ngIf="loadedFeature === 'home_page'"></app-home-page>
         <app-articles-all *ngIf="loadedFeature === 'articles_all'"></app-articles-all>
         <app-articles-order-by-title *ngIf="loadedFeature === 'articles_orderBy_title'"></app-articles-order-by-title>
         <app-articles-order-by-date *ngIf="loadedFeature === 'articles_orderBy_date'"></app-articles-order-by-date>
         <app-articles-search *ngIf="loadedFeature === 'articles_search'"></app-articles-search>
-
-        <!-- <app-recipes *ngIf="loadedFeature === 'articles'"></app-recipes>
-        <app-shopping-list *ngIf="loadedFeature !== 'articles'"></app-shopping-list> -->
       </div>
     </div>
   </div>

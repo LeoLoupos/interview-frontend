@@ -11,14 +11,20 @@ export class ArticlesSearchComponent implements OnInit {
 
   constructor(private articlesService: ArticlesService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
   }
 
   //on every keystroke we listen the input value
   async onKey(event: any) {
-    // Getting the searchTitle path
-    // /api/articles/searchTitle?title=
-    this.articles = await this.articlesService.getArticles(`searchTitle?title=${event.target.value.trim()}`);
+
+
+    //avoid sending request when search bar is empty
+    if (event.target.value.trim() !== '') {
+
+      // Getting the searchTitle path
+      // /api/articles/searchTitle?title=
+      this.articles = await this.articlesService.getDataBySuffix(`/searchTitle?title=${event.target.value.trim()}`);
+    }
   }
 
 }

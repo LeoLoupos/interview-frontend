@@ -1,9 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient , HttpHeaders } from '@angular/common/http';
 
+
+/*
+  This Service sends back the desired data
+
+  By sending an HTTP GET to our server
+  API_URL = 'http://localhost:3000/api/articles/';
+
+*/
+
 @Injectable()
 export class ArticlesService {
-  API_URL: string = 'http://localhost:3000/api/articles/';
+  API_URL: string = 'http://localhost:3000/api/articles';
   articles: any;
 
   constructor(private http: HttpClient) { }
@@ -19,15 +28,12 @@ export class ArticlesService {
 
   */
 
-  async getArticles(suffix: string) {
-    const httpOptions = {
-      headers: new HttpHeaders({'Access-Control-Allow-Origin': '*'})
-    };
+  async getDataBySuffix(suffix: string) {
 
     await this.http.get(this.API_URL + suffix)
     .subscribe( (data: any) => {
       //we pass to the articles variable , the data.articles
-      this.articles = data.articles.map(value => {
+      this.articles = data.articles.map( value => {
 
         //Transforming the timestamp to DateString , and then we split to only the first space.
         //We also cast to interget using a typescript technique , the + operator sticked to the variable.
@@ -47,17 +53,21 @@ export class ArticlesService {
           },
           createdAt: createdAt
         };
+
       });
     }, err => {
       //If we have an error
       if (err) {
-        this.articles = [];
+
       }
     });
 
-    //when await is finished , we return the articles
-    return this.articles;
+    return this.getArticles();
 
+  }
+
+  getArticles() {
+    return this.articles;
   }
 
 }

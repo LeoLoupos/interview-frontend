@@ -15,7 +15,7 @@ export class ArticlesAllComponent implements OnInit {
   async ngOnInit() {
     // Getting the root path
     // /api/articles/
-    this.articles = await this.articlesService.getArticles(``);
+    this.articles = await this.articlesService.getDataBySuffix(`/`);
   }
 
 }

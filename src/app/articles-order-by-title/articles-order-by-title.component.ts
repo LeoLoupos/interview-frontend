@@ -15,7 +15,7 @@ export class ArticlesOrderByTitleComponent implements OnInit {
   async ngOnInit() {
     // Getting the orderTitle path
     // /api/articles/orderTitle
-    this.articles_orderTitle = await this.articlesService.getArticles(`orderTitle`);
+    this.articles_orderTitle = await this.articlesService.getDataBySuffix(`/orderTitle`);
   }
 
 }

@@ -1,26 +1,29 @@
+<!--
+This Html file , keeps the header component
+The material Design comes with the help of Bootstrap
+-->
 <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a href="#" (click)="onSelect('articles_all')" class="navbar-brand">Interview</a>
-      </div>
-  
-      <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="#" (click)="onSelect('articles_all')" >All Articles</a></li>
-          <li><a href="#" (click)="onSelect('articles_orderBy_title')" >Articles OrderBy Title</a></li>
-          <li><a href="#" (click)="onSelect('articles_orderBy_date')" >Articles OrderBy Date</a></li>
-          <li><a href="#" (click)="onSelect('articles_search')" >Search Articles</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Save Data</a></li>
-              <li><a href="#">Fetch Data</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <a href="#" (click)="onSelect('home_page')" class="navbar-brand">Home</a>
     </div>
-  </nav>
+  
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <!--
+        On click => emit the Output() and change the variable on app.component.ts
+        -->
+        <li><a href="#" (click)="onSelect('articles_all')" >All Articles</a></li>
+        <li><a href="#" (click)="onSelect('articles_orderBy_title')" >Articles OrderBy Title</a></li>
+        <li><a href="#" (click)="onSelect('articles_orderBy_date')" >Articles OrderBy Date</a></li>
+        <li><a href="#" (click)="onSelect('articles_search')" >Search Articles</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+          <!--
+          can be used for in-navbar search bar
+          -->
+      </ul>
+    </div>
+  </div>
+</nav>
   

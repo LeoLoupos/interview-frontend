@@ -6,8 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  loadedFeature: string = 'articles_all';
+  //Setting up , the Home page
+  loadedFeature = 'home_page';
 
+  //Get data from the app-header.component
   onNavigate(feature: string) {
     this.loadedFeature = feature;
   }

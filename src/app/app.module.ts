@@ -11,7 +11,11 @@ import { ArticlesOrderByDateComponent } from './articles-order-by-date/articles-
 import { ArticlesSearchComponent } from './articles-search/articles-search.component';
 import { ArticlesService } from './articles.service';
 import { HttpClientModule } from '@angular/common/http';
+import { HomePageComponent } from './home-page/home-page.component';
 
+/*
+App Module : we define our modules
+*/
 
 @NgModule({
   declarations: [
@@ -20,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     ArticlesAllComponent,
     ArticlesOrderByTitleComponent,
     ArticlesOrderByDateComponent,
-    ArticlesSearchComponent
+    ArticlesSearchComponent,
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,

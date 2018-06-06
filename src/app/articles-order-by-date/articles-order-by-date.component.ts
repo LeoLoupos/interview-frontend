@@ -7,6 +7,7 @@ import { ArticlesService } from '../articles.service';
   styleUrls: ['./articles-order-by-date.component.css']
 })
 export class ArticlesOrderByDateComponent implements OnInit {
+
   articles_orderDate: any;
 
   constructor(private articlesService: ArticlesService) { }
@@ -14,7 +15,7 @@ export class ArticlesOrderByDateComponent implements OnInit {
   async ngOnInit() {
     // Getting the orderDate path
     // /api/articles/orderDate
-    this.articles_orderDate = await this.articlesService.getArticles(`orderDate`);
+    this.articles_orderDate = await this.articlesService.getDataBySuffix(`/orderDate`);
   }
 
 }
