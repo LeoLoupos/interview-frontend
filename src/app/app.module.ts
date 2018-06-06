@@ -9,6 +9,7 @@ import { ArticlesAllComponent } from './articles-all/articles-all.component';
 import { ArticlesOrderByTitleComponent } from './articles-order-by-title/articles-order-by-title.component';
 import { ArticlesOrderByDateComponent } from './articles-order-by-date/articles-order-by-date.component';
 import { ArticlesSearchComponent } from './articles-search/articles-search.component';
+import { ArticlesService } from './articles.service';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -26,7 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ArticlesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
