@@ -1,0 +1,32 @@
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">All Articles</div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Thumbnail</th>
+        <th>Creator</th>
+        <th>Creation Date</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="articles">
+        <!-- Our Rest api , constructs a new Object for response , Our data is inside the articles key -->
+        <tr *ngFor="let article of articles">
+          <td>{{ article.title }}</td>
+          <td>
+            <img [src]="article.thumbnail" class="article_thumbnail">
+          </td>
+          <td>{{ article.creator.name }}</td>
+          <td>{{ article.createdAt }}</td>
+        <!-- <a [routerLink]="['/book-details', book._id]" class="btn btn-default">
+          Show Details
+        </a>    -->
+        </tr>
+      
+    </tbody>
+  </table>
+    
+</div>
+  
