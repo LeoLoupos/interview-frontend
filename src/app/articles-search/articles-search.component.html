@@ -1,3 +1,45 @@
-<p>
-  articles-search works!
-</p>
+<div class="container">
+    <div class="row">
+          <div class="col-md-6">
+              <div id="custom-search-input">
+                  <!-- <div class="input-group col-md-12"> -->
+                      <input type="text" class="form-control input-lg" (keyup)="onKey($event)" placeholder="Search Articles..." />
+                      <!-- <span class="input-group-btn">
+                          <button class="btn btn-info btn-lg" type="button">
+                              <i class="glyphicon glyphicon-search" (click)="searchByTitle()"></i>
+                          </button>
+                      </span> -->
+                  <!-- </div> -->
+              </div>
+          </div>
+    </div>
+
+    <!-- Search result -->
+    <div class="row" *ngIf="articles?.length > 0">
+        <table class="table">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Thumbnail</th>
+                <th>Creator</th>
+                <th>Creation Date</th>
+              </tr>
+            </thead>
+            <tbody *ngIf="articles">
+                <!-- Our Rest api , constructs a new Object for response , Our data is inside the articles key -->
+                <tr *ngFor="let article of articles">
+                  <td>{{ article.title }}</td>
+                  <td>
+                    <img [src]="article.thumbnail" class="article_thumbnail">
+                  </td>
+                  <td>{{ article.creator.name }}</td>
+                  <td>{{ article.createdAt }}</td>
+                <!-- <a [routerLink]="['/book-details', book._id]" class="btn btn-default">
+                  Show Details
+                </a>    -->
+                </tr>
+              
+            </tbody>
+          </table>
+    </div>
+  </div>
