@@ -61,7 +61,7 @@ export class ArticlesService {
     }, err => {
       //If we have an error
       if (err) {
-
+        console.error(err);
       }
     });
 

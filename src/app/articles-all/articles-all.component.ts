@@ -9,16 +9,21 @@ import { Observable } from 'rxjs/Observable';
 })
 export class ArticlesAllComponent implements OnInit {
 
+  //Articles that we retrieve from ArticlesService
   articles: any[];
 
   constructor(private articlesService: ArticlesService) { }
 
   async ngOnInit() {
-    // Getting the root path
-    // /api/articles/
-    await this.articlesService.getObsArticles('/').subscribe( data => {
-      this.articles = data;
-    });
+    try {
+      // Getting the root path
+      // /api/articles/
+      await this.articlesService.getObsArticles('/').subscribe( data => {
+        this.articles = data;
+      });
+    } catch (e) {
+      console.error(e);
+    }
   }
 
 }
