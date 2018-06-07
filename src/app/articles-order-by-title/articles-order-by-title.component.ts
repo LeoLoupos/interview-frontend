@@ -8,14 +8,16 @@ import { ArticlesService } from '../articles.service';
   styleUrls: ['./articles-order-by-title.component.css']
 })
 export class ArticlesOrderByTitleComponent implements OnInit {
-  articles_orderTitle: any;
+  articles_orderTitle: any [];
 
   constructor(private articlesService: ArticlesService) { }
 
   async ngOnInit() {
     // Getting the orderTitle path
     // /api/articles/orderTitle
-    this.articles_orderTitle = await this.articlesService.getDataBySuffix(`/orderTitle`);
+    await this.articlesService.getObsArticles('/orderTitle').subscribe( data => {
+      this.articles_orderTitle = data;
+    });
   }
 
 }

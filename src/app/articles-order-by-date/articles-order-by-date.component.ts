@@ -8,14 +8,16 @@ import { ArticlesService } from '../articles.service';
 })
 export class ArticlesOrderByDateComponent implements OnInit {
 
-  articles_orderDate: any;
+  articles_orderDate: any [];
 
   constructor(private articlesService: ArticlesService) { }
 
   async ngOnInit() {
     // Getting the orderDate path
     // /api/articles/orderDate
-    this.articles_orderDate = await this.articlesService.getDataBySuffix(`/orderDate`);
+    await this.articlesService.getObsArticles('/orderDate').subscribe( data => {
+      this.articles_orderDate = data;
+    });
   }
 
 }

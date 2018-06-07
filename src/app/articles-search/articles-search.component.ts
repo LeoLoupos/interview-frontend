@@ -7,7 +7,7 @@ import { ArticlesService } from '../articles.service';
   styleUrls: ['./articles-search.component.css']
 })
 export class ArticlesSearchComponent implements OnInit {
-  articles: any;
+  articles: any [];
 
   constructor(private articlesService: ArticlesService) { }
 
@@ -16,14 +16,12 @@ export class ArticlesSearchComponent implements OnInit {
 
   //on every keystroke we listen the input value
   async onKey(event: any) {
-
-
     //avoid sending request when search bar is empty
     if (event.target.value.trim() !== '') {
 
       // Getting the searchTitle path
       // /api/articles/searchTitle?title=
-      this.articles = await this.articlesService.getDataBySuffix(`/searchTitle?title=${event.target.value.trim()}`);
+      this.articles = await this.articlesService.getSearchedQuery(`/searchTitle?title=${event.target.value.trim()}`);
     }
   }
 
