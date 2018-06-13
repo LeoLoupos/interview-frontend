@@ -7,8 +7,6 @@ import { ArticlesService } from '../articles.service';
   styleUrls: ['./articles-search.component.css']
 })
 export class ArticlesSearchComponent implements OnInit {
-
-  //Articles that we retrieve from ArticlesService
   articles: any [];
 
   constructor(private articlesService: ArticlesService) { }
@@ -20,14 +18,10 @@ export class ArticlesSearchComponent implements OnInit {
   async onKey(event: any) {
     //avoid sending request when search bar is empty
     if (event.target.value.trim() !== '') {
-      try {
-        // Getting the searchTitle path
-        // /api/articles/searchTitle?title=
-        this.articles = await this.articlesService.getSearchedQuery(`/searchTitle?title=${event.target.value.trim()}`);
-      } catch (e) {
-        console.error(e);
-      }
 
+      // Getting the searchTitle path
+      // /api/articles/searchTitle?title=
+      this.articles = await this.articlesService.getSearchedQuery(`/searchTitle?title=${event.target.value.trim()}`);
     }
   }
 
