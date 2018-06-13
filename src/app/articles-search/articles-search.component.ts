@@ -16,13 +16,21 @@ export class ArticlesSearchComponent implements OnInit {
 
   //on every keystroke we listen the input value
   async onKey(event: any) {
-    //avoid sending request when search bar is empty
-    if (event.target.value.trim() !== '') {
+    //avoid sending request when search bar is not validated
+    if (this.validateSearchInput(event.target.value)) {
 
       // Getting the searchTitle path
       // /api/articles/searchTitle?title=
       this.articles = await this.articlesService.getSearchedQuery(`/searchTitle?title=${event.target.value.trim()}`);
+    } else {
+      this.articles = [];
     }
+  }
+
+  validateSearchInput(value: any) {
+    const validTitle = typeof value === 'string' && value.trim() !== '';
+
+    return validTitle;
   }
 
 }

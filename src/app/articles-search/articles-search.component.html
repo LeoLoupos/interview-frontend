@@ -10,7 +10,7 @@
     </div>
 
     <!-- Search result and show this component only when articles.length > 0 -->
-    <div class="row" *ngIf="articles?.length > 0">
+    <div class="row" *ngIf="articles?.length > 0;   else noResults">
         <table class="table">
             <thead>
               <tr>
@@ -20,7 +20,7 @@
                 <th>Creation Date</th>
               </tr>
             </thead>
-            <tbody *ngIf="articles">
+            <tbody>
                 <!-- iterate the requested data from the Rest API  -->
                 <tr *ngFor="let article of articles">
                     <!-- Always with ?. to avoid undefined data -->
@@ -34,7 +34,12 @@
             </tbody>
         </table>
     </div>
-    <div class="row" *ngIf="articles?.length === 0">
-        <p>{{ 'No result was found' }}</p>
-    </div>
+    <ng-template #noResults>
+        <div class="row" *ngIf="articles">
+            <div class="col-md-6">
+                <p>{{ 'No result was found' }}</p>
+            </div>
+        </div>
+    </ng-template>
+    
   </div>
